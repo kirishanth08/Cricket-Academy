@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Schedule | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/admin-schedule.css">
+</head><body>
+<div class="layout"><aside class="sidebar" id="sidebar">
+<a href="admin-dashboard.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<div class="admin-card"><div class="admin-avatar">AD</div><div><strong>Academy Admin</strong><span>Administrator</span></div></div>
+<div class="nav-title">Administration</div>
+<nav class="side-nav">
+<a class="" href="admin-dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="" href="admin-users.html"><i class="fa-solid fa-users"></i>Users</a>
+<a class="" href="admin-programs.html"><i class="fa-solid fa-list-check"></i>Programs</a>
+<a class="" href="admin-orders.html"><i class="fa-solid fa-receipt"></i>Orders & Payments</a>
+<a class="" href="admin-messages.html"><i class="fa-regular fa-envelope"></i>Messages</a>
+<a class="active" href="admin-schedule.html"><i class="fa-regular fa-calendar"></i>Schedule</a>
+<a class="" href="admin-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+</nav>
+<div class="side-bottom"><nav class="side-nav"><a href="#" id="settingsBtn"><i class="fa-solid fa-gear"></i>Settings</a><a href="admin-login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div>
+</aside><div class="mobile-overlay" id="overlay"></div>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Schedule</h1><p>Plan training sessions, coaches and batch timings.</p></div><div class="top-actions"><button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button><button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button><a class="top-btn" href="admin-notifications.html"><i class="fa-regular fa-bell"></i></a></div></header>
+<section class="card"><div class="toolbar"><div class="toolbar-left"><select class="select"><option>August 2026</option><option>September 2026</option></select><select class="select" id="scheduleFilter"><option value="all">All Programs</option><option>Under 10</option><option>Under 14</option><option>Under 17</option><option>Adults</option></select></div><button class="btn primary" id="addSession"><i class="fa-solid fa-calendar-plus"></i> Add Session</button></div>
+<div class="calendar-wrap"><div class="calendar">
+<div class="day-head">Mon</div><div class="day-head">Tue</div><div class="day-head">Wed</div><div class="day-head">Thu</div><div class="day-head">Fri</div><div class="day-head">Sat</div><div class="day-head">Sun</div>
+<div class="day"><span class="day-num">24</span><div class="event" data-program="Under 14">5:00 PM · U14</div></div><div class="day"><span class="day-num">25</span></div><div class="day"><span class="day-num">26</span><div class="event lime" data-program="Under 14">5:00 PM · U14</div></div><div class="day"><span class="day-num">27</span><div class="event" data-program="Under 10">4:30 PM · U10</div></div><div class="day"><span class="day-num">28</span><div class="event" data-program="Under 17">5:30 PM · U17</div></div><div class="day"><span class="day-num">29</span><div class="event lime" data-program="Under 14">7:00 AM · Match</div></div><div class="day"><span class="day-num">30</span></div>
+</div></div></section>
+<section class="card" style="margin-top:18px"><div class="card-head"><h3>Upcoming Sessions</h3></div><table class="table"><thead><tr><th>Date</th><th>Program</th><th>Focus</th><th>Coach</th><th>Status</th><th>Action</th></tr></thead><tbody id="sessionTable"><tr><td>Aug 24 · 5:00 PM</td><td>Under 14</td><td>Batting & Technique</td><td>Arjun</td><td><span class="status active">Confirmed</span></td><td><button class="btn small reschedule">Reschedule</button></td></tr><tr><td>Aug 26 · 5:00 PM</td><td>Under 14</td><td>Bowling & Fielding</td><td>Meera</td><td><span class="status pending">Rescheduled</span></td><td><button class="btn small reschedule">Edit</button></td></tr></tbody></table></section>
+<div class="modal" id="sessionModal"><div class="modal-box"><button class="close" id="sessionClose"><i class="fa-solid fa-xmark"></i></button><h2>Add Session</h2><p>Create a training session or update an existing one.</p><form id="sessionForm"><div class="form-grid"><div class="field"><label>Date</label><input type="date" required></div><div class="field"><label>Time</label><input type="time" required></div><div class="field"><label>Program</label><select><option>Under 10</option><option>Under 14</option><option>Under 17</option><option>Adults</option></select></div><div class="field"><label>Coach</label><input required placeholder="Coach name"></div><div class="field full"><label>Session Focus</label><input required placeholder="e.g. Batting & Technique"></div></div><div class="form-actions"><button type="button" class="btn" id="sessionCancel">Cancel</button><button class="btn primary">Save Session</button></div></form></div></div>
+</main></div>
+<div class="modal" id="settingsModal"><div class="modal-box" style="max-width:440px">
+<button class="close" id="settingsClose"><i class="fa-solid fa-xmark"></i></button>
+<h2>Quick Settings</h2><p>Use the header controls for dark mode and RTL. Administrator account access is available below.</p>
+<a class="btn primary" style="display:block;text-align:center" href="admin-login.html">Admin Account</a>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="assets/js/admin-schedule.js"></script>
+</body></html>

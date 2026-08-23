@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Attendance | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/attendance.css">
+</head>
+<body><div class="layout">
+<aside class="sidebar" id="sidebar">
+<a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<a href="profile.html" class="profile-mini"><div class="avatar">AK</div><div><strong>Arjun Kumar</strong><span>Under 14 · Player</span></div></a>
+<div class="nav-title">Dashboard</div><nav class="side-nav">
+<a class="" href="dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="" href="training-schedule.html"><i class="fa-regular fa-calendar"></i>Training Schedule</a>
+<a class="active" href="attendance.html"><i class="fa-solid fa-chart-simple"></i>Attendance</a>
+<a class="" href="coach-feedback.html"><i class="fa-regular fa-comment-dots"></i>Coach Feedback</a>
+<a class="" href="notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+<a class="" href="profile.html"><i class="fa-regular fa-user"></i>My Profile</a>
+</nav><div class="side-bottom"><nav class="side-nav"><a href="#" id="helpBtn"><i class="fa-solid fa-headset"></i>Help & Support</a><a class="logout" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div></aside>
+<div class="mobile-overlay" id="overlay"></div>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Attendance</h1><p>Review your month-wise attendance and session history.</p></div><div class="top-actions"><button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button><button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button><a class="top-btn" href="notifications.html"><i class="fa-regular fa-bell"></i></a></div></header>
+<section class="card">
+<div class="toolbar"><div><strong style="font-size:11px">Attendance Summary</strong><span style="display:block;font-size:9px;color:var(--muted);margin-top:3px">Track consistency across your training sessions.</span></div>
+<select class="select" id="monthSelect"><option>August 2026</option><option>July 2026</option><option>June 2026</option></select></div>
+<div class="attendance-top"><div class="donut"><span>92%</span></div><div class="stat-grid"><div class="stat-box"><strong>22</strong><span>Present</span></div><div class="stat-box"><strong>2</strong><span>Absent</span></div><div class="stat-box"><strong>24</strong><span>Total</span></div></div></div>
+<table class="table"><thead><tr><th>Date</th><th>Session</th><th>Status</th><th>Coach</th></tr></thead><tbody>
+<tr><td>Aug 24</td><td><strong>Batting & Technique</strong></td><td><span class="pill confirmed">Present</span></td><td>Arjun</td></tr>
+<tr><td>Aug 22</td><td><strong>Match Simulation</strong></td><td><span class="pill confirmed">Present</span></td><td>Performance Team</td></tr>
+<tr><td>Aug 20</td><td><strong>Batting</strong></td><td><span class="pill confirmed">Present</span></td><td>Arjun</td></tr>
+<tr><td>Aug 18</td><td><strong>Fielding</strong></td><td><span class="pill cancelled">Absent</span></td><td>Rahul</td></tr>
+<tr><td>Aug 15</td><td><strong>Bowling</strong></td><td><span class="pill confirmed">Present</span></td><td>Meera</td></tr>
+<tr><td>Jul 28</td><td><strong>Batting & Technique</strong></td><td><span class="pill confirmed">Present</span></td><td>Arjun</td></tr>
+<tr><td>Jul 26</td><td><strong>Bowling</strong></td><td><span class="pill cancelled">Absent</span></td><td>Meera</td></tr>
+<tr><td>Jul 22</td><td><strong>Fielding</strong></td><td><span class="pill confirmed">Present</span></td><td>Rahul</td></tr>
+<tr><td>Jul 18</td><td><strong>Fitness & Conditioning</strong></td><td><span class="pill pending">Late</span></td><td>Meera</td></tr>
+<tr><td>Jun 30</td><td><strong>Match Simulation</strong></td><td><span class="pill confirmed">Present</span></td><td>Performance Team</td></tr>
+<tr><td>Jun 25</td><td><strong>Batting</strong></td><td><span class="pill confirmed">Present</span></td><td>Arjun</td></tr>
+<tr><td>Jun 20</td><td><strong>Bowling</strong></td><td><span class="pill cancelled">Absent</span></td><td>Meera</td></tr>
+</tbody></table>
+</section>
+</main></div>
+<div class="help-modal" id="helpModal"><div class="help-box"><button class="help-close" id="helpClose"><i class="fa-solid fa-xmark"></i></button><h2>How Can We Help?</h2><p>Choose a support option and we'll help you get the answer you need.</p><div class="help-options"><a class="help-option" href="mailto:support@elitecricket.in"><i class="fa-regular fa-envelope"></i><div><strong>Email Support</strong><span>support@elitecricket.in</span></div></a><a class="help-option" href="tel:+919876543210"><i class="fa-solid fa-phone"></i><div><strong>Call Academy</strong><span>+91 98765 43210</span></div></a><a class="help-option" href="contact.html"><i class="fa-solid fa-location-dot"></i><div><strong>Contact Academy</strong><span>Open the contact page for directions and enquiries.</span></div></a></div></div></div>
+
+
+
+
+
+
+<script src="assets/js/attendance.js"></script>
+</body></html>

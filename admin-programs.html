@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Programs | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/admin-programs.css">
+</head><body>
+<div class="layout"><aside class="sidebar" id="sidebar">
+<a href="admin-dashboard.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<div class="admin-card"><div class="admin-avatar">AD</div><div><strong>Academy Admin</strong><span>Administrator</span></div></div>
+<div class="nav-title">Administration</div>
+<nav class="side-nav">
+<a class="" href="admin-dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="" href="admin-users.html"><i class="fa-solid fa-users"></i>Users</a>
+<a class="active" href="admin-programs.html"><i class="fa-solid fa-list-check"></i>Programs</a>
+<a class="" href="admin-orders.html"><i class="fa-solid fa-receipt"></i>Orders & Payments</a>
+<a class="" href="admin-messages.html"><i class="fa-regular fa-envelope"></i>Messages</a>
+<a class="" href="admin-schedule.html"><i class="fa-regular fa-calendar"></i>Schedule</a>
+<a class="" href="admin-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+</nav>
+<div class="side-bottom"><nav class="side-nav"><a href="#" id="settingsBtn"><i class="fa-solid fa-gear"></i>Settings</a><a href="admin-login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div>
+</aside><div class="mobile-overlay" id="overlay"></div>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Programs</h1><p>Manage academy programs, availability and capacity.</p></div><div class="top-actions"><button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button><button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button><a class="top-btn" href="admin-notifications.html"><i class="fa-regular fa-bell"></i></a></div></header>
+<div class="stats"><div class="stat"><i class="fa-solid fa-list-check"></i><strong>4</strong><span>Programs</span></div><div class="stat"><i class="fa-solid fa-users"></i><strong>248</strong><span>Enrolled Players</span></div><div class="stat"><i class="fa-solid fa-user-group"></i><strong>62</strong><span>Average Batch Size</span></div><div class="stat"><i class="fa-solid fa-chart-line"></i><strong>91%</strong><span>Retention</span></div></div>
+<section class="card"><div class="card-head"><div><h3>Academy Programs</h3><p>Manage age groups, capacity and availability.</p></div><button class="btn primary" id="addProgram"><i class="fa-solid fa-plus"></i> Add Program</button></div>
+<div class="program-grid" id="programGrid">
+<article class="program-card"><div class="program-icon"><i class="fa-solid fa-child"></i></div><h3>Under 10</h3><p>Foundational cricket skills, movement and confidence through play.</p><div class="program-meta"><span>54 players</span><button class="toggle on" title="Toggle availability"></button></div></article>
+<article class="program-card"><div class="program-icon"><i class="fa-solid fa-baseball-bat-ball"></i></div><h3>Under 14</h3><p>Technical development across batting, bowling, fielding and fitness.</p><div class="program-meta"><span>78 players</span><button class="toggle on"></button></div></article>
+<article class="program-card"><div class="program-icon"><i class="fa-solid fa-trophy"></i></div><h3>Under 17</h3><p>Performance-focused coaching, match preparation and selection support.</p><div class="program-meta"><span>66 players</span><button class="toggle on"></button></div></article>
+<article class="program-card"><div class="program-icon"><i class="fa-solid fa-person-running"></i></div><h3>Adults</h3><p>Structured coaching for recreational and competitive adult players.</p><div class="program-meta"><span>50 players</span><button class="toggle on"></button></div></article>
+</div></section>
+<div class="modal" id="programModal"><div class="modal-box"><button class="close" id="programClose"><i class="fa-solid fa-xmark"></i></button><h2>Add Program</h2><p>Add a new coaching program to the academy.</p><form id="programForm"><div class="form-grid"><div class="field"><label>Program Name</label><input id="pname" required></div><div class="field"><label>Capacity</label><input id="pcap" type="number" min="1" required></div><div class="field full"><label>Description</label><textarea id="pdesc" required></textarea></div></div><div class="form-actions"><button type="button" class="btn" id="programCancel">Cancel</button><button class="btn primary">Create Program</button></div></form></div></div>
+</main></div>
+<div class="modal" id="settingsModal"><div class="modal-box" style="max-width:440px">
+<button class="close" id="settingsClose"><i class="fa-solid fa-xmark"></i></button>
+<h2>Quick Settings</h2><p>Use the header controls for dark mode and RTL. Administrator account access is available below.</p>
+<a class="btn primary" style="display:block;text-align:center" href="admin-login.html">Admin Account</a>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="assets/js/admin-programs.js"></script>
+</body></html>

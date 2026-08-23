@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My Profile | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/profile.css">
+</head>
+<body><div class="layout">
+<aside class="sidebar" id="sidebar">
+<a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<a href="profile.html" class="profile-mini"><div class="avatar">AK</div><div><strong>Arjun Kumar</strong><span>Under 14 · Player</span></div></a>
+<div class="nav-title">Dashboard</div><nav class="side-nav">
+<a class="" href="dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="" href="training-schedule.html"><i class="fa-regular fa-calendar"></i>Training Schedule</a>
+<a class="" href="attendance.html"><i class="fa-solid fa-chart-simple"></i>Attendance</a>
+<a class="" href="coach-feedback.html"><i class="fa-regular fa-comment-dots"></i>Coach Feedback</a>
+<a class="" href="notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+<a class="active" href="profile.html"><i class="fa-regular fa-user"></i>My Profile</a>
+</nav><div class="side-bottom"><nav class="side-nav"><a href="#" id="helpBtn"><i class="fa-solid fa-headset"></i>Help & Support</a><a class="logout" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div></aside>
+<div class="mobile-overlay" id="overlay"></div>
+
+<main class="main">
+<header class="topbar">
+<div class="page-title"><h1>My Profile</h1><p>Manage your player information and account details.</p></div>
+<div class="top-actions">
+<button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+<button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+<button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button>
+<a class="top-btn" href="notifications.html"><i class="fa-regular fa-bell"></i></a>
+</div>
+</header>
+
+<div id="saveMessage" class="save-message" role="status"></div>
+
+<div class="profile-grid">
+<section class="card profile-card">
+<div class="profile-big" id="profileAvatar">AK</div>
+<h2 id="profileName">Arjun Kumar</h2>
+<p id="profileProgram">Under 14 · Player</p>
+<div style="margin-top:18px"><span class="pill confirmed">Active Player</span></div>
+</section>
+
+<section class="card">
+<div class="card-head">
+<h3>Personal Details</h3>
+<button class="small-btn" type="button" id="editBtn"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+</div>
+
+<form id="profileForm">
+<div class="edit-grid">
+<div class="edit-field"><label for="firstName">First Name</label><input id="firstName" type="text" required></div>
+<div class="edit-field"><label for="lastName">Last Name</label><input id="lastName" type="text" required></div>
+<div class="edit-field"><label for="dob">Date of Birth</label><input id="dob" type="date" required></div>
+<div class="edit-field"><label for="email">Email</label><input id="email" type="email" required></div>
+<div class="edit-field"><label for="phone">Phone</label><input id="phone" type="tel" required></div>
+<div class="edit-field"><label for="program">Program</label>
+<select id="program" required>
+<option value="Under 10 Development">Under 10 Development</option>
+<option value="Under 14 Development">Under 14 Development</option>
+<option value="Under 17 Performance">Under 17 Performance</option>
+<option value="Adults Performance">Adults Performance</option>
+</select></div>
+</div>
+
+<div class="form-actions">
+<button class="secondary-btn" type="button" id="cancelBtn">Cancel</button>
+<button class="save-btn" type="submit"><i class="fa-solid fa-check"></i> Save Changes</button>
+</div>
+</form>
+</section>
+
+<section class="card" style="grid-column:1/-1">
+<div class="card-head"><h3>Parent / Guardian</h3></div>
+<form id="guardianForm">
+<div class="edit-grid">
+<div class="edit-field"><label for="guardianName">Guardian Name</label><input id="guardianName" type="text" required></div>
+<div class="edit-field"><label for="guardianRelation">Relationship</label><input id="guardianRelation" type="text" required></div>
+<div class="edit-field"><label for="guardianEmail">Email</label><input id="guardianEmail" type="email" required></div>
+<div class="edit-field"><label for="guardianPhone">Phone</label><input id="guardianPhone" type="tel" required></div>
+</div>
+<div class="form-actions">
+<button class="save-btn" type="submit"><i class="fa-solid fa-check"></i> Save Guardian Details</button>
+</div>
+</form>
+</section>
+
+<section class="card" style="grid-column:1/-1">
+<div class="card-head"><h3>Account Information</h3></div>
+<div class="info-grid">
+<div class="info-item"><span>Membership</span><strong>Active · Since June 2025</strong></div>
+<div class="info-item"><span>Player ID</span><strong>ECA-U14-0248</strong></div>
+<div class="info-item"><span>Account Type</span><strong>Player / Parent</strong></div>
+<div class="info-item"><span>Profile Status</span><strong id="profileStatus">Saved</strong></div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<div class="help-modal" id="helpModal"><div class="help-box"><button class="help-close" id="helpClose"><i class="fa-solid fa-xmark"></i></button><h2>How Can We Help?</h2><p>Choose a support option and we'll help you get the answer you need.</p><div class="help-options"><a class="help-option" href="mailto:support@elitecricket.in"><i class="fa-regular fa-envelope"></i><div><strong>Email Support</strong><span>support@elitecricket.in</span></div></a><a class="help-option" href="tel:+919876543210"><i class="fa-solid fa-phone"></i><div><strong>Call Academy</strong><span>+91 98765 43210</span></div></a><a class="help-option" href="contact.html"><i class="fa-solid fa-location-dot"></i><div><strong>Contact Academy</strong><span>Open the contact page for directions and enquiries.</span></div></a></div></div></div>
+
+
+
+
+
+<script src="assets/js/profile.js"></script>
+</body></html>

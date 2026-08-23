@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elite Cricket Academy player and parent dashboard.">
+<title>Dashboard | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+<a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<div class="profile-mini"><div class="avatar">AK</div><div><strong>Arjun Kumar</strong><span>Under 14 · Player</span></div></div>
+<div class="nav-title">Dashboard</div>
+<nav class="side-nav">
+<a class="active" href="dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a href="training-schedule.html"><i class="fa-regular fa-calendar"></i>Training Schedule</a>
+<a href="attendance.html"><i class="fa-solid fa-chart-simple"></i>Attendance</a>
+<a href="coach-feedback.html"><i class="fa-regular fa-comment-dots"></i>Coach Feedback</a>
+<a href="notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+<a href="programs.html"><i class="fa-solid fa-list-check"></i>Programs</a>
+</nav>
+<div class="side-bottom"><nav class="side-nav"><a href="#" id="helpBtn"><i class="fa-solid fa-headset"></i>Help & Support</a><a class="logout" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div>
+</aside>
+<div class="mobile-overlay" id="overlay"></div>
+
+<main class="main">
+<header class="topbar">
+<div class="page-title"><h1>Dashboard</h1><p>Track your training, progress and academy updates.</p></div>
+<div class="top-actions">
+<button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+<button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+<button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button>
+<a class="top-btn" href="notifications.html"><i class="fa-regular fa-bell"></i><span class="notification-dot"></span></a>
+</div>
+</header>
+
+<section class="welcome">
+<div class="welcome-content"><div class="kicker">Good Evening, Arjun</div><h2>Ready For Your<br>Next Session?</h2><p>Here's what's happening with your academy journey this week.</p></div>
+<div class="progress"><div class="progress-label"><span>Monthly Development</span><strong>72%</strong></div><div class="bar"><span></span></div></div>
+</section>
+
+
+<div class="overview-grid">
+<section class="card overview-card">
+<div class="card-head"><h3>Next Session</h3><a href="training-schedule.html">View Schedule</a></div>
+<div class="next-session">
+<div class="session-date"><span>MON</span><strong>24</strong></div>
+<div class="session-info"><strong>Batting & Technique</strong><span>5:00 PM · Main Nets</span><small>Coach Arjun</small></div>
+<div class="session-status confirmed">Confirmed</div>
+</div>
+</section>
+
+<section class="card overview-card">
+<div class="card-head"><h3>Attendance</h3><a href="attendance.html">View Details</a></div>
+<div class="stat-row"><div><strong>92%</strong><span>Monthly attendance</span></div><div class="stat-icon"><i class="fa-solid fa-chart-simple"></i></div></div>
+<div class="mini-bar"><span></span></div>
+</section>
+
+<section class="card overview-card">
+<div class="card-head"><h3>Latest Feedback</h3><a href="coach-feedback.html">View Feedback</a></div>
+<div class="feedback-preview"><div class="feedback-icon"><i class="fa-regular fa-comment-dots"></i></div><div><strong>Good control through the off side.</strong><p>Coach Arjun · Batting · Aug 20</p></div></div>
+</section>
+
+<section class="card overview-card">
+<div class="card-head"><h3>Academy Update</h3><a href="notifications.html">View All</a></div>
+<div class="update-preview"><div class="notice-icon"><i class="fa-solid fa-trophy"></i></div><div><strong>Under 14 Selection Trials</strong><p>Registration closes September 5.</p></div></div>
+</section>
+</div>
+
+<section class="card quick-access-card">
+<div class="card-head"><h3>Quick Access</h3></div>
+<div class="quick-grid">
+<a class="quick-card" href="programs.html"><i class="fa-solid fa-baseball-bat-ball"></i><span>My Program</span></a>
+<a class="quick-card" href="pricing.html"><i class="fa-solid fa-credit-card"></i><span>Fees & Payments</span></a>
+<a class="quick-card" href="contact.html"><i class="fa-solid fa-headset"></i><span>Contact Academy</span></a>
+</div>
+</section>
+</main>
+</div>
+
+
+<div class="help-modal" id="helpModal"><div class="help-box"><button class="help-close" id="helpClose"><i class="fa-solid fa-xmark"></i></button><h2>How Can We Help?</h2><p>Choose a support option and we'll help you get the answer you need.</p><div class="help-options"><a class="help-option" href="mailto:support@elitecricket.in"><i class="fa-regular fa-envelope"></i><div><strong>Email Support</strong><span>support@elitecricket.in</span></div></a><a class="help-option" href="tel:+919876543210"><i class="fa-solid fa-phone"></i><div><strong>Call Academy</strong><span>+91 98765 43210</span></div></a><a class="help-option" href="contact.html"><i class="fa-solid fa-location-dot"></i><div><strong>Contact Academy</strong><span>Open contact details</span></div></a></div></div></div>
+
+
+
+
+
+<script src="assets/js/auth.js"></script><script src="assets/js/dashboard.js"></script>
+</body>
+</html>

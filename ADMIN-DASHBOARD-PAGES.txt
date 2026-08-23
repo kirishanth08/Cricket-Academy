@@ -1,0 +1,17 @@
+Admin dashboard pages:
+1. admin-dashboard.html — Overview
+2. admin-users.html — Users
+3. admin-programs.html — Programs
+4. admin-orders.html — Orders & Payments
+5. admin-messages.html — Messages
+6. admin-schedule.html — Schedule
+7. admin-notifications.html — Notifications
+
+Functional interactions:
+- Users: search/filter, add, edit, delete
+- Programs: enable/disable, add program
+- Orders: search/filter, view, payment reminder, refund review, export action
+- Messages: search/filter, open message, reply, compose
+- Schedule: month/program filter, add session, edit/reschedule
+- Notifications: filter, mark read, mark all read, delete, publish announcement
+- Every page has working sidebar navigation, dark mode, RTL, mobile sidebar, notifications link and settings popup.

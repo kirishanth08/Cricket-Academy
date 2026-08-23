@@ -1,0 +1,18 @@
+/* ===== Original inline script 1 from admin-notifications.html ===== */
+(function() {
+const body=document.body,themeToggle=document.getElementById('themeToggle'),rtlToggle=document.getElementById('rtlToggle'),sidebar=document.getElementById('sidebar'),menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
+if(localStorage.getItem('eca-theme')==='dark'){body.classList.add('dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>'}
+themeToggle.onclick=()=>{body.classList.toggle('dark');const d=body.classList.contains('dark');localStorage.setItem('eca-theme',d?'dark':'light');themeToggle.innerHTML=d?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>'};
+rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl')};
+if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
+function closeMenu(){sidebar.classList.remove('open');overlay.classList.remove('show')}menuBtn.onclick=()=>{sidebar.classList.toggle('open');overlay.classList.toggle('show')};overlay.onclick=closeMenu;
+const settingsBtn=document.getElementById('settingsBtn'),settingsModal=document.getElementById('settingsModal'),settingsClose=document.getElementById('settingsClose');
+settingsBtn.onclick=e=>{e.preventDefault();settingsModal.classList.add('show');closeMenu()};settingsClose.onclick=()=>settingsModal.classList.remove('show');settingsModal.onclick=e=>{if(e.target===settingsModal)settingsModal.classList.remove('show')};
+const toast=document.getElementById('toast');function notify(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove('show'),2600)}
+
+function filterNotices(){const f=document.getElementById('noticeFilter').value;document.querySelectorAll('.notification').forEach(n=>n.style.display=f==='all'||(f==='unread'&&n.dataset.read==='false')||(f==='read'&&n.dataset.read==='true')?'flex':'none')}document.getElementById('noticeFilter').onchange=filterNotices;
+function bindNotice(n){const read=n.querySelector('.read-btn');if(read)read.onclick=()=>{n.classList.remove('unread');n.dataset.read='true';read.remove();notify('Marked as read');filterNotices()};n.querySelector('.delete-notice').onclick=()=>{n.remove();notify('Notification deleted')}}
+document.querySelectorAll('.notification').forEach(bindNotice);document.getElementById('markAll').onclick=()=>{document.querySelectorAll('.notification.unread').forEach(n=>{n.classList.remove('unread');n.dataset.read='true';const b=n.querySelector('.read-btn');if(b)b.remove()});notify('All notifications marked as read');filterNotices()};
+const nm=document.getElementById('noticeModal');document.getElementById('newNotice').onclick=()=>nm.classList.add('show');document.getElementById('noticeClose').onclick=()=>nm.classList.remove('show');document.getElementById('noticeCancel').onclick=()=>nm.classList.remove('show');
+document.getElementById('noticeForm').onsubmit=e=>{e.preventDefault();const n=document.createElement('article');n.className='notification unread';n.dataset.read='false';n.innerHTML='<div class="notification-icon"><i class="fa-solid fa-bullhorn"></i></div><div><h4>'+document.getElementById('ntitle').value+'</h4><p>'+document.getElementById('nbody').value+'</p><time>Just now</time></div><div class="notification-actions"><button class="btn small read-btn">Mark Read</button><button class="btn small danger delete-notice">Delete</button></div>';document.getElementById('noticeList').prepend(n);bindNotice(n);nm.classList.remove('show');document.getElementById('noticeForm').reset();notify('Announcement published')};
+})();

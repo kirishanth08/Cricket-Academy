@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Training Schedule | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/training-schedule.css">
+</head>
+<body><div class="layout">
+<aside class="sidebar" id="sidebar">
+<a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<a href="profile.html" class="profile-mini"><div class="avatar">AK</div><div><strong>Arjun Kumar</strong><span>Under 14 · Player</span></div></a>
+<div class="nav-title">Dashboard</div><nav class="side-nav">
+<a class="" href="dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="active" href="training-schedule.html"><i class="fa-regular fa-calendar"></i>Training Schedule</a>
+<a class="" href="attendance.html"><i class="fa-solid fa-chart-simple"></i>Attendance</a>
+<a class="" href="coach-feedback.html"><i class="fa-regular fa-comment-dots"></i>Coach Feedback</a>
+<a class="" href="notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+<a class="" href="profile.html"><i class="fa-regular fa-user"></i>My Profile</a>
+</nav><div class="side-bottom"><nav class="side-nav"><a href="#" id="helpBtn"><i class="fa-solid fa-headset"></i>Help & Support</a><a class="logout" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div></aside>
+<div class="mobile-overlay" id="overlay"></div>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Training Schedule</h1><p>Your weekly sessions, changes and upcoming academy training.</p></div><div class="top-actions"><button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button><button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button><a class="top-btn" href="notifications.html"><i class="fa-regular fa-bell"></i></a></div></header>
+<section class="card">
+<div class="toolbar"><div><strong style="font-size:11px">August 2026</strong><span style="display:block;font-size:9px;color:var(--muted);margin-top:3px">Week of August 24 – 30</span></div>
+<div><select class="select" id="statusFilter"><option value="all">All Sessions</option><option value="confirmed">Confirmed</option><option value="rescheduled">Rescheduled</option><option value="cancelled">Cancelled</option></select></div></div>
+<div class="schedule-list" id="scheduleList">
+<div class="session" data-status="confirmed"><div class="session-date">MON<strong>24</strong></div><div class="session-info"><strong>Batting & Technique</strong><span>5:00 PM · Main Nets · Coach Arjun</span></div><span class="pill confirmed">Confirmed</span></div>
+<div class="session" data-status="rescheduled"><div class="session-date">WED<strong>26</strong></div><div class="session-info"><strong>Bowling & Fielding</strong><span>5:00 PM · Practice Ground · Coach Meera</span></div><span class="pill rescheduled">Rescheduled</span></div>
+<div class="session" data-status="cancelled"><div class="session-date">THU<strong>27</strong></div><div class="session-info"><strong>Fitness & Movement</strong><span>5:00 PM · Fitness Zone · Coach Rahul</span></div><span class="pill cancelled">Cancelled</span></div>
+<div class="session" data-status="confirmed"><div class="session-date">SAT<strong>29</strong></div><div class="session-info"><strong>Match Simulation</strong><span>7:00 AM · Main Ground · Performance Team</span></div><span class="pill confirmed">Confirmed</span></div>
+</div></section>
+<div class="card" style="margin-top:18px"><div class="card-head"><h3>Important Schedule Note</h3></div><p style="font-size:10px;color:var(--muted);line-height:1.8">The Wednesday bowling and fielding session has moved from 4:00 PM to 5:00 PM. Please arrive 15 minutes early for warm-up and equipment check.</p></div>
+</main></div>
+<div class="help-modal" id="helpModal"><div class="help-box"><button class="help-close" id="helpClose"><i class="fa-solid fa-xmark"></i></button><h2>How Can We Help?</h2><p>Choose a support option and we'll help you get the answer you need.</p><div class="help-options"><a class="help-option" href="mailto:support@elitecricket.in"><i class="fa-regular fa-envelope"></i><div><strong>Email Support</strong><span>support@elitecricket.in</span></div></a><a class="help-option" href="tel:+919876543210"><i class="fa-solid fa-phone"></i><div><strong>Call Academy</strong><span>+91 98765 43210</span></div></a><a class="help-option" href="contact.html"><i class="fa-solid fa-location-dot"></i><div><strong>Contact Academy</strong><span>Open the contact page for directions and enquiries.</span></div></a></div></div></div>
+
+
+
+
+
+
+<script src="assets/js/training-schedule.js"></script>
+</body></html>

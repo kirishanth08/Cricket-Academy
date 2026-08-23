@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Users | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/admin-users.css">
+</head><body>
+<div class="layout"><aside class="sidebar" id="sidebar">
+<a href="admin-dashboard.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<div class="admin-card"><div class="admin-avatar">AD</div><div><strong>Academy Admin</strong><span>Administrator</span></div></div>
+<div class="nav-title">Administration</div>
+<nav class="side-nav">
+<a class="" href="admin-dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="active" href="admin-users.html"><i class="fa-solid fa-users"></i>Users</a>
+<a class="" href="admin-programs.html"><i class="fa-solid fa-list-check"></i>Programs</a>
+<a class="" href="admin-orders.html"><i class="fa-solid fa-receipt"></i>Orders & Payments</a>
+<a class="" href="admin-messages.html"><i class="fa-regular fa-envelope"></i>Messages</a>
+<a class="" href="admin-schedule.html"><i class="fa-regular fa-calendar"></i>Schedule</a>
+<a class="" href="admin-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+</nav>
+<div class="side-bottom"><nav class="side-nav"><a href="#" id="settingsBtn"><i class="fa-solid fa-gear"></i>Settings</a><a href="admin-login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div>
+</aside><div class="mobile-overlay" id="overlay"></div>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Users</h1><p>Manage players, parents and academy accounts.</p></div><div class="top-actions"><button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button><button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button><a class="top-btn" href="admin-notifications.html"><i class="fa-regular fa-bell"></i></a></div></header>
+<section class="stats">
+<div class="stat"><i class="fa-solid fa-users"></i><strong id="userTotal">248</strong><span>Total Users</span></div>
+<div class="stat"><i class="fa-solid fa-user-check"></i><strong id="userActive">231</strong><span>Active Players</span></div>
+<div class="stat"><i class="fa-solid fa-hourglass-half"></i><strong id="userPending">9</strong><span>Pending Accounts</span></div>
+<div class="stat"><i class="fa-solid fa-user-slash"></i><strong id="userPaused">8</strong><span>Paused Accounts</span></div>
+</section>
+<section class="card">
+<div class="toolbar"><div class="toolbar-left"><input class="search" id="userSearch" placeholder="Search player, parent or email..."><select class="select" id="userFilter"><option value="all">All Status</option><option value="active">Active</option><option value="pending">Pending</option><option value="paused">Paused</option></select></div><div class="toolbar-right"><button class="btn primary" id="addUser"><i class="fa-solid fa-user-plus"></i> Add Player</button></div></div>
+<div class="table-wrap"><table class="table"><thead><tr><th>Player</th><th>Program</th><th>Parent</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead><tbody id="userTable">
+<tr data-status="active"><td><div class="user-cell"><div class="mini-avatar">RS</div><div><strong>Rohan Sharma</strong><span class="sub">rohan@example.com</span></div></div></td><td>Under 14</td><td>Vikram Sharma</td><td><span class="status active">Active</span></td><td>Aug 21</td><td><button class="btn small edit-user">Edit</button> <button class="btn small danger delete-user">Delete</button></td></tr>
+<tr data-status="pending"><td><div class="user-cell"><div class="mini-avatar">AR</div><div><strong>Ananya Rao</strong><span class="sub">ananya@example.com</span></div></div></td><td>Under 10</td><td>Priya Rao</td><td><span class="status pending">Pending</span></td><td>Aug 20</td><td><button class="btn small edit-user">Edit</button> <button class="btn small danger delete-user">Delete</button></td></tr>
+<tr data-status="active"><td><div class="user-cell"><div class="mini-avatar">VP</div><div><strong>Vikram Patel</strong><span class="sub">vikram@example.com</span></div></div></td><td>Under 17</td><td>Raj Patel</td><td><span class="status active">Active</span></td><td>Aug 18</td><td><button class="btn small edit-user">Edit</button> <button class="btn small danger delete-user">Delete</button></td></tr>
+<tr data-status="paused"><td><div class="user-cell"><div class="mini-avatar">MN</div><div><strong>Meera Nair</strong><span class="sub">meera@example.com</span></div></div></td><td>Adults</td><td>Self</td><td><span class="status paused">Paused</span></td><td>Aug 15</td><td><button class="btn small edit-user">Edit</button> <button class="btn small danger delete-user">Delete</button></td></tr>
+</tbody></table></div></section>
+<div class="modal" id="userModal"><div class="modal-box"><button class="close" id="userClose"><i class="fa-solid fa-xmark"></i></button><h2 id="userModalTitle">Add Player</h2><p>Create or update a player account.</p><form id="userForm"><div class="form-grid"><div class="field"><label>First Name</label><input id="ufirst" required></div><div class="field"><label>Last Name</label><input id="ulast" required></div><div class="field"><label>Email</label><input id="uemail" type="email" required></div><div class="field"><label>Parent / Guardian</label><input id="uguardian" required></div><div class="field"><label>Program</label><select id="uprogram"><option>Under 10</option><option>Under 14</option><option>Under 17</option><option>Adults</option></select></div><div class="field"><label>Status</label><select id="ustatus"><option value="active">Active</option><option value="pending">Pending</option><option value="paused">Paused</option></select></div></div><div class="form-actions"><button type="button" class="btn" id="userCancel">Cancel</button><button class="btn primary">Save Player</button></div></form></div></div>
+</main></div>
+<div class="modal" id="settingsModal"><div class="modal-box" style="max-width:440px">
+<button class="close" id="settingsClose"><i class="fa-solid fa-xmark"></i></button>
+<h2>Quick Settings</h2><p>Use the header controls for dark mode and RTL. Administrator account access is available below.</p>
+<a class="btn primary" style="display:block;text-align:center" href="admin-login.html">Admin Account</a>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="assets/js/admin-users.js"></script>
+</body></html>

@@ -1,0 +1,12 @@
+Dashboard pages created:
+- dashboard.html — Overview
+- training-schedule.html — weekly sessions and status filter
+- attendance.html — month summary and attendance table
+- coach-feedback.html — skill filter and coach notes
+- notifications.html — unread/read notification actions
+- profile.html — player and guardian details
+
+Help & Support:
+- Implemented as a popup on dashboard pages, not a separate page.
+
+All dashboard sidebar items and top notification controls link to working pages.

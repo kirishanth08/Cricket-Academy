@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Notifications | Elite Cricket Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  <link rel="stylesheet" href="assets/css/notifications.css">
+</head>
+<body><div class="layout">
+<aside class="sidebar" id="sidebar">
+<a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-baseball-bat-ball"></i></div><div><strong>ELITE CRICKET</strong><span>ACADEMY</span></div></a>
+<a href="profile.html" class="profile-mini"><div class="avatar">AK</div><div><strong>Arjun Kumar</strong><span>Under 14 · Player</span></div></a>
+<div class="nav-title">Dashboard</div><nav class="side-nav">
+<a class="" href="dashboard.html"><i class="fa-solid fa-grid-2"></i>Overview</a>
+<a class="" href="training-schedule.html"><i class="fa-regular fa-calendar"></i>Training Schedule</a>
+<a class="" href="attendance.html"><i class="fa-solid fa-chart-simple"></i>Attendance</a>
+<a class="" href="coach-feedback.html"><i class="fa-regular fa-comment-dots"></i>Coach Feedback</a>
+<a class="active" href="notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a>
+<a class="" href="profile.html"><i class="fa-regular fa-user"></i>My Profile</a>
+</nav><div class="side-bottom"><nav class="side-nav"><a href="#" id="helpBtn"><i class="fa-solid fa-headset"></i>Help & Support</a><a class="logout" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></nav></div></aside>
+<div class="mobile-overlay" id="overlay"></div>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Notifications</h1><p>Selection trials, tournaments, deadlines and academy announcements.</p></div><div class="top-actions"><button class="top-btn menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button><button class="top-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button><button class="top-btn" id="rtlToggle"><i class="fa-solid fa-align-right"></i></button><a class="top-btn" href="notifications.html"><i class="fa-regular fa-bell"></i></a></div></header>
+<section class="card">
+<div class="toolbar"><div><strong style="font-size:11px">Academy Updates</strong><span style="display:block;font-size:9px;color:var(--muted);margin-top:3px"><span id="unreadCount">3</span> unread notifications</span></div>
+<button class="small-btn" id="markAll">Mark All As Read</button></div>
+<div class="notifications" id="notificationList">
+<article class="notice unread"><div class="notice-icon"><i class="fa-solid fa-trophy"></i></div><div><div class="notice-meta"><span>Selection Trials</span><span>Today</span></div><h4>Under 14 Selection Trials</h4><p>Registration closes September 5. Trial details and reporting time are now available.</p></div><div class="notice-actions"><button class="small-btn mark-read">Mark Read</button></div></article>
+<article class="notice unread"><div class="notice-icon"><i class="fa-solid fa-calendar-days"></i></div><div><div class="notice-meta"><span>Tournament</span><span>Yesterday</span></div><h4>Inter-Academy Tournament</h4><p>Fixture schedule will be published next week. Keep your weekends available.</p></div><div class="notice-actions"><button class="small-btn mark-read">Mark Read</button></div></article>
+<article class="notice unread"><div class="notice-icon"><i class="fa-solid fa-credit-card"></i></div><div><div class="notice-meta"><span>Registration</span><span>Aug 20</span></div><h4>Monthly Program Renewal</h4><p>Program renewal is due before September 1 to keep the current training slot.</p></div><div class="notice-actions"><button class="small-btn mark-read">Mark Read</button></div></article>
+<article class="notice"><div class="notice-icon"><i class="fa-solid fa-circle-info"></i></div><div><div class="notice-meta"><span>Academy</span><span>Aug 18</span></div><h4>Saturday Match Simulation</h4><p>Please arrive 20 minutes before the scheduled start time for team briefing.</p></div></article>
+</div></section>
+</main></div>
+<div class="help-modal" id="helpModal"><div class="help-box"><button class="help-close" id="helpClose"><i class="fa-solid fa-xmark"></i></button><h2>How Can We Help?</h2><p>Choose a support option and we'll help you get the answer you need.</p><div class="help-options"><a class="help-option" href="mailto:support@elitecricket.in"><i class="fa-regular fa-envelope"></i><div><strong>Email Support</strong><span>support@elitecricket.in</span></div></a><a class="help-option" href="tel:+919876543210"><i class="fa-solid fa-phone"></i><div><strong>Call Academy</strong><span>+91 98765 43210</span></div></a><a class="help-option" href="contact.html"><i class="fa-solid fa-location-dot"></i><div><strong>Contact Academy</strong><span>Open the contact page for directions and enquiries.</span></div></a></div></div></div>
+
+
+
+
+
+
+<script src="assets/js/notifications.js"></script>
+</body></html>
