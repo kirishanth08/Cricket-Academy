@@ -46,13 +46,8 @@
     });
   });
 
-  /* Guard helper for dashboards */
+  /* Guard helper for dashboards - direct access allowed without login */
   window.ecaRequireRole=function(role){
-    var s=window.ecaGetSession();
-    if(!s||s.role!==role){
-      window.location.replace(role==='admin'?'admin-login.html':'login.html');
-      return false;
-    }
     return true;
   };
 

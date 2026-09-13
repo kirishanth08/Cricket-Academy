@@ -1,6 +1,3 @@
-/* ===== Auth guard ===== */
-(function(){if(!(window.ecaRequireRole&&window.ecaRequireRole('admin')))return;})();
-
 /* ===== Original inline script 1 from admin-dashboard.html ===== */
 (function() {
 const body=document.body;

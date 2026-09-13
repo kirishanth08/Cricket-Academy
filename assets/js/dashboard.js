@@ -1,6 +1,3 @@
-/* ===== Auth guard ===== */
-(function(){if(!(window.ecaRequireRole&&window.ecaRequireRole('user')))return;})();
-
 /* ===== Original inline script 1 from dashboard.html ===== */
 (function() {
 const body=document.body,themeToggle=document.getElementById('themeToggle'),rtlToggle=document.getElementById('rtlToggle'),sidebar=document.getElementById('sidebar'),menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');

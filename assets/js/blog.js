@@ -120,3 +120,51 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`
 })();
 
 if (typeof rtlToggle !== 'undefined' && rtlToggle) { rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL'; }
+
+
+/* ===== Multi-Dropdown Support (Home, Dashboard) ===== */
+(function initNavDropdowns() {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(function(drop) {
+    const trigger = drop.querySelector('.nav-drop-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        // Toggle on mobile accordion
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = drop.classList.contains('open');
+
+        // Close all other dropdowns
+        dropdowns.forEach(function(other) {
+          other.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          drop.classList.add('open');
+        }
+      }
+      // On desktop: allow direct navigation when clicking trigger (e.g. Dashboard -> dashboard.html)
+    });
+
+    const menuLinks = drop.querySelectorAll('.nav-drop-menu a');
+    menuLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        drop.classList.remove('open');
+      });
+    });
+  });
+
+  document.addEventListener('click', function(e) {
+    dropdowns.forEach(function(drop) {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+      }
+    });
+  });
+})();
+

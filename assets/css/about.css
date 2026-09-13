@@ -697,3 +697,263 @@ h1, h2, h3, .hero h1, .hero h2 {
 .value:nth-child(3) p {
   color: rgba(255, 255, 255, 0.9) !important;
 }
+
+/* ===== NAV DROPDOWN & DASHBOARD MENU STYLING ===== */
+nav .nav-dropdown {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+nav .nav-drop-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  min-height: 38px !important;
+  white-space: nowrap !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+nav .nav-dropdown:hover .nav-drop-trigger,
+nav .nav-dropdown.open .nav-drop-trigger {
+  background: rgba(49, 84, 164, 0.08) !important;
+}
+body.dark nav .nav-dropdown:hover .nav-drop-trigger,
+body.dark nav .nav-dropdown.open .nav-drop-trigger {
+  background: rgba(200, 239, 69, 0.12) !important;
+}
+nav .nav-drop-trigger i {
+  font-size: 10px !important;
+  line-height: 1 !important;
+  transition: transform 0.25s ease !important;
+}
+nav .nav-dropdown:hover .nav-drop-trigger i,
+nav .nav-dropdown.open .nav-drop-trigger i {
+  transform: rotate(180deg) !important;
+}
+nav .nav-drop-menu {
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 0 !important;
+  min-width: 215px !important;
+  padding: 8px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 32, 26, 0.10) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 36px rgba(16, 32, 26, 0.15) !important;
+  display: block !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: translateY(-6px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease !important;
+  z-index: 9999 !important;
+}
+nav .nav-dropdown:hover .nav-drop-menu,
+nav .nav-dropdown.open .nav-drop-menu {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+nav .nav-drop-menu a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 9px 12px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #10201a !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease !important;
+}
+nav .nav-drop-menu a i {
+  width: 16px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  opacity: 0.9 !important;
+}
+nav .nav-drop-menu a:hover {
+  background: rgba(49, 84, 164, 0.08) !important;
+  transform: translateX(2px) !important;
+}
+nav .nav-drop-menu .dropdown-divider {
+  height: 1px !important;
+  margin: 6px 4px !important;
+  background: rgba(16, 32, 26, 0.09) !important;
+}
+body.dark nav .nav-drop-menu {
+  background: #0f1c16 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+}
+body.dark nav .nav-drop-menu a {
+  color: #f4faf6 !important;
+}
+body.dark nav .nav-drop-menu a:hover {
+  background: rgba(200, 239, 69, 0.12) !important;
+  color: var(--lime) !important;
+}
+body.dark nav .nav-drop-menu .dropdown-divider {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+@media (max-width: 900px) {
+  nav .nav-dropdown {
+    display: block !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+  nav .nav-drop-trigger {
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 11px 14px !important;
+  }
+  nav .nav-drop-menu {
+    position: static !important;
+    min-width: 0 !important;
+    margin: 4px 0 8px 12px !important;
+    padding: 6px !important;
+    box-shadow: none !important;
+    transform: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  nav .nav-dropdown.open .nav-drop-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+@media (min-width: 901px) {
+  nav .nav-dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
+  }
+}
+
+
+/* ===== NAVBAR ACTIONS & SIGNUP BUTTON ALIGNMENT FIX ===== */
+nav {
+  align-items: center !important;
+}
+
+.nav-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-actions .icon-btn:not(.menu-btn),
+.nav-actions #themeToggle,
+.nav-actions #rtlToggle,
+.nav-actions .login-btn,
+.nav-actions .signup-btn {
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+.nav-actions .icon-btn {
+  width: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+}
+
+.nav-actions #rtlToggle {
+  min-width: 48px !important;
+  padding: 0 10px !important;
+}
+
+.nav-actions .login-btn {
+  padding: 0 16px !important;
+  border-radius: 11px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  border: 1px solid var(--line) !important;
+  text-decoration: none !important;
+}
+
+.nav-actions .signup-btn {
+  padding: 0 18px !important;
+  min-width: 84px !important;
+  border-radius: 11px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #101a3a !important;
+  background: var(--lime) !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: 0 8px 18px rgba(200, 239, 69, 0.22) !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-actions .signup-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 22px rgba(200, 239, 69, 0.32) !important;
+}
+
+/* Ensure navbar items fit smoothly without squeezing */
+.links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  flex-shrink: 1 !important;
+}
+
+.links a,
+nav .nav-drop-trigger {
+  padding: 8px 9px !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+
+/* Strictly hide hamburger menu icon in website mode (desktop) */
+@media (min-width: 901px) {
+  .menu-btn,
+  .nav-actions .menu-btn,
+  button.menu-btn {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .menu-btn,
+  .nav-actions .menu-btn,
+  button.menu-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    box-sizing: border-box !important;
+  }
+}
