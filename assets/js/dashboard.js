@@ -6,7 +6,7 @@
 const body=document.body,themeToggle=document.getElementById('themeToggle'),rtlToggle=document.getElementById('rtlToggle'),sidebar=document.getElementById('sidebar'),menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
 if(localStorage.getItem('eca-theme')==='dark'){body.classList.add('dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>'}
 themeToggle.addEventListener('click',()=>{body.classList.toggle('dark');const d=body.classList.contains('dark');localStorage.setItem('eca-theme',d?'dark':'light');themeToggle.innerHTML=d?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>'});
-rtlToggle.addEventListener('click',()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl')});
+rtlToggle.addEventListener('click', () => {const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl')}); rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL';
 if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
 function closeMenu(){sidebar.classList.remove('open');overlay.classList.remove('show')}
 menuBtn.addEventListener('click',()=>{sidebar.classList.toggle('open');overlay.classList.toggle('show')});overlay.addEventListener('click',closeMenu);
@@ -70,3 +70,5 @@ document.querySelectorAll('.side-nav a[href^="#"]').forEach(a=>a.addEventListene
   }
 })();
 })();
+
+if (typeof rtlToggle !== 'undefined' && rtlToggle) { rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL'; }

@@ -3,7 +3,7 @@
 const body=document.body,themeToggle=document.getElementById('themeToggle'),rtlToggle=document.getElementById('rtlToggle'),sidebar=document.getElementById('sidebar'),menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
 if(localStorage.getItem('eca-theme')==='dark'){body.classList.add('dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>'}
 themeToggle.onclick=()=>{body.classList.toggle('dark');const d=body.classList.contains('dark');localStorage.setItem('eca-theme',d?'dark':'light');themeToggle.innerHTML=d?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>'};
-rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl')};
+rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl');rtlToggle.textContent=document.documentElement.dir==='rtl'?'LTR':'RTL';};
 if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
 function closeMenu(){sidebar.classList.remove('open');overlay.classList.remove('show')}menuBtn.onclick=()=>{sidebar.classList.toggle('open');overlay.classList.toggle('show')};overlay.onclick=closeMenu;
 const settingsBtn=document.getElementById('settingsBtn'),settingsModal=document.getElementById('settingsModal'),settingsClose=document.getElementById('settingsClose');
@@ -20,3 +20,5 @@ function updateUserStats(){const rows=[...document.querySelectorAll('#userTable 
 function filterUsers(){const q=document.getElementById('userSearch').value.toLowerCase(),f=document.getElementById('userFilter').value;document.querySelectorAll('#userTable tr').forEach(r=>{const okText=r.textContent.toLowerCase().includes(q),okStatus=f==='all'||r.dataset.status===f;r.style.display=okText&&okStatus?'':'none'})}
 document.getElementById('userSearch').oninput=filterUsers;document.getElementById('userFilter').onchange=filterUsers;
 })();
+
+if (typeof rtlToggle !== 'undefined' && rtlToggle) { rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL'; }

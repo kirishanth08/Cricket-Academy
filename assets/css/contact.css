@@ -572,3 +572,118 @@ body.dark nav .nav-drop-menu a:hover{
     height:14px;
   }
 }
+
+/* ===== Client PDF Feedback Adjustments ===== */
+/* Issue 2: Dark mode logo contrast */
+body.dark .brand span {
+  color: var(--lime) !important;
+}
+body.dark .brand strong {
+  color: #ffffff !important;
+}
+
+/* Issue 3: Navbar page navigation size & login CTA contrast */
+.links a {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 10px 11px !important;
+}
+.login-btn {
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: var(--ink) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid var(--line) !important;
+  transition: .25s ease !important;
+}
+body.dark .login-btn {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+.login-btn:hover {
+  background: var(--lime) !important;
+  color: #101a3a !important;
+  border-color: var(--lime) !important;
+}
+
+/* Issue 4: Heading and subtext alignment across all sections */
+.section-head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  gap: 12px !important;
+  margin-bottom: 42px !important;
+}
+.section-head > div {
+  width: 100% !important;
+}
+.section-desc, .desc, .section-head .desc {
+  max-width: 680px !important;
+  color: var(--muted) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+}
+
+/* Issue 5: Header RTL/LTR option text button styling */
+#rtlToggle, .rtl-text-btn {
+  width: auto !important;
+  min-width: 46px !important;
+  height: 38px !important;
+  padding: 0 11px !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 11px !important;
+}
+
+/* Issue 6: Heading font weight maintained at 600 or below */
+h1, h2, h3, .hero h1, .hero h2 {
+  font-weight: 600 !important;
+}
+
+/* Issue 8: Spacing above and below CTA */
+.cta {
+  padding: 85px 0 !important;
+}
+
+/* Issue 13: Contact submit CTA & note text contrast */
+.submit-btn {
+  width: 100% !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  background: var(--lime) !important;
+  color: #101a3a !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  transition: .25s ease !important;
+  box-shadow: 0 8px 20px rgba(200, 239, 69, 0.25) !important;
+}
+.submit-btn:hover {
+  background: #d9ff50 !important;
+  color: #0c142e !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 25px rgba(200, 239, 69, 0.35) !important;
+}
+.form-note {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--muted) !important;
+  margin-top: 14px !important;
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+body.dark .form-note {
+  color: #aab9b3 !important;
+}

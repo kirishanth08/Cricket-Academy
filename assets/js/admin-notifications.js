@@ -3,7 +3,7 @@
 const body=document.body,themeToggle=document.getElementById('themeToggle'),rtlToggle=document.getElementById('rtlToggle'),sidebar=document.getElementById('sidebar'),menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
 if(localStorage.getItem('eca-theme')==='dark'){body.classList.add('dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>'}
 themeToggle.onclick=()=>{body.classList.toggle('dark');const d=body.classList.contains('dark');localStorage.setItem('eca-theme',d?'dark':'light');themeToggle.innerHTML=d?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>'};
-rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl')};
+rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl');rtlToggle.textContent=document.documentElement.dir==='rtl'?'LTR':'RTL';};
 if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
 function closeMenu(){sidebar.classList.remove('open');overlay.classList.remove('show')}menuBtn.onclick=()=>{sidebar.classList.toggle('open');overlay.classList.toggle('show')};overlay.onclick=closeMenu;
 const settingsBtn=document.getElementById('settingsBtn'),settingsModal=document.getElementById('settingsModal'),settingsClose=document.getElementById('settingsClose');
@@ -16,3 +16,5 @@ document.querySelectorAll('.notification').forEach(bindNotice);document.getEleme
 const nm=document.getElementById('noticeModal');document.getElementById('newNotice').onclick=()=>nm.classList.add('show');document.getElementById('noticeClose').onclick=()=>nm.classList.remove('show');document.getElementById('noticeCancel').onclick=()=>nm.classList.remove('show');
 document.getElementById('noticeForm').onsubmit=e=>{e.preventDefault();const n=document.createElement('article');n.className='notification unread';n.dataset.read='false';n.innerHTML='<div class="notification-icon"><i class="fa-solid fa-bullhorn"></i></div><div><h4>'+document.getElementById('ntitle').value+'</h4><p>'+document.getElementById('nbody').value+'</p><time>Just now</time></div><div class="notification-actions"><button class="btn small read-btn">Mark Read</button><button class="btn small danger delete-notice">Delete</button></div>';document.getElementById('noticeList').prepend(n);bindNotice(n);nm.classList.remove('show');document.getElementById('noticeForm').reset();notify('Announcement published')};
 })();
+
+if (typeof rtlToggle !== 'undefined' && rtlToggle) { rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL'; }

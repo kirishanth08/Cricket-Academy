@@ -27,9 +27,9 @@ const body = document.body;
     rtlToggle.addEventListener('click', () => {
       const rtl = document.documentElement.dir === 'rtl';
       document.documentElement.dir = rtl ? 'ltr' : 'rtl';
-      localStorage.setItem('eca-dir', rtl ? 'ltr' : 'rtl');
+      localStorage.setItem('eca-dir', rtl ? 'ltr' : 'rtl'); rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL';
     });
-    if (localStorage.getItem('eca-dir') === 'rtl') document.documentElement.dir = 'rtl';
+    if (localStorage.getItem('eca-dir') === 'rtl') { document.documentElement.dir = 'rtl'; if (rtlToggle) rtlToggle.textContent = 'LTR'; }
 
     // Mobile menu
     menuBtn.addEventListener('click', () => {

@@ -20,11 +20,7 @@ const dark=body.classList.contains('dark');
 localStorage.setItem('eca-theme',dark?'dark':'light');
 themeToggle.innerHTML=dark?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';
 };
-rtlToggle.onclick=()=>{
-const rtl=document.documentElement.dir==='rtl';
-document.documentElement.dir=rtl?'ltr':'rtl';
-localStorage.setItem('eca-dir',rtl?'ltr':'rtl');
-};
+rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl');rtlToggle.textContent=document.documentElement.dir==='rtl'?'LTR':'RTL';};
 if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
 
 function closeMenu(){sidebar.classList.remove('open');overlay.classList.remove('show')}
@@ -42,3 +38,5 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')settingsModal.style.
 const date=new Date();
 document.getElementById('todayDate').textContent=date.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 })();
+
+if (typeof rtlToggle !== 'undefined' && rtlToggle) { rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL'; }

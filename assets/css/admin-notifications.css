@@ -425,3 +425,30 @@ body:not(.dark) #sidebar .brand-mark i,
 body:not(.dark) #sidebar .profile-mini .avatar,
 body:not(.dark) #sidebar .admin-avatar,
 body:not(.dark) aside.sidebar .brand-mark i{background:#c8ef45!important;color:#101a3a!important}
+
+
+/* ===== Client PDF Feedback Adjustments ===== */
+body.dark .brand span {
+  color: var(--lime) !important;
+}
+body.dark .brand strong {
+  color: #ffffff !important;
+}
+#rtlToggle, .rtl-text-btn {
+  width: auto !important;
+  min-width: 46px !important;
+  height: 38px !important;
+  padding: 0 11px !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 11px !important;
+}
+h1, h2, h3 {
+  font-weight: 600 !important;
+}
+

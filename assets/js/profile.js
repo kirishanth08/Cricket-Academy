@@ -17,11 +17,7 @@ themeToggle.onclick=()=>{
   localStorage.setItem('eca-theme',dark?'dark':'light');
   themeToggle.innerHTML=dark?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';
 };
-rtlToggle.onclick=()=>{
-  const rtl=document.documentElement.dir==='rtl';
-  document.documentElement.dir=rtl?'ltr':'rtl';
-  localStorage.setItem('eca-dir',rtl?'ltr':'rtl');
-};
+rtlToggle.onclick=()=>{const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl');rtlToggle.textContent=document.documentElement.dir==='rtl'?'LTR':'RTL';};
 if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
 
 function closeMenu(){
@@ -166,3 +162,5 @@ document.getElementById('guardianForm').onsubmit=e=>{
   }
 })();
 })();
+
+if (typeof rtlToggle !== 'undefined' && rtlToggle) { rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL'; }
