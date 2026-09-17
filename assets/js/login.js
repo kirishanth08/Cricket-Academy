@@ -5,7 +5,19 @@ if(localStorage.getItem('eca-theme')==='dark'){body.classList.add('dark');themeT
 themeToggle.addEventListener('click',()=>{body.classList.toggle('dark');const d=body.classList.contains('dark');localStorage.setItem('eca-theme',d?'dark':'light');themeToggle.innerHTML=d?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>'});
 rtlToggle.addEventListener('click', () => {const r=document.documentElement.dir==='rtl';document.documentElement.dir=r?'ltr':'rtl';localStorage.setItem('eca-dir',r?'ltr':'rtl')}); rtlToggle.textContent = document.documentElement.dir === 'rtl' ? 'LTR' : 'RTL';
 if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
-menuBtn.addEventListener('click',()=>{const o=navLinks.style.display==='flex';navLinks.style.cssText=o?'':'display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;padding:10px;background:var(--deep);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.3)'});
+if(menuBtn && navLinks) {
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle('open');
+    navLinks.style.display = isOpen ? 'flex' : '';
+  });
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+      navLinks.classList.remove('open');
+      navLinks.style.display = '';
+    }
+  });
+}
 document.getElementById('passwordToggle').addEventListener('click',()=>{const input=document.getElementById('password'),btn=document.getElementById('passwordToggle');input.type=input.type==='password'?'text':'password';btn.innerHTML=input.type==='password'?'<i class="fa-regular fa-eye"></i>':'<i class="fa-regular fa-eye-slash"></i>'});
 document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const email=document.getElementById('email').value.trim().toLowerCase(),password=document.getElementById('password').value,error=document.getElementById('errorMsg'),success=document.getElementById('successMsg');error.classList.remove('show');error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Invalid email or password.';success.classList.remove('show');if(!email||password.length<6){error.classList.add('show');return}let users=[];try{users=JSON.parse(localStorage.getItem('eca-users')||'[]')}catch(err){}const user=users.find(u=>u.email===email&&(u.password===password||u.password.toLowerCase()===password.trim()));if(!user){error.classList.add('show');return}window.ecaSetSession({firstName:user.firstName,lastName:user.lastName,email:user.email,role:'user'});success.classList.add('show');setTimeout(()=>{window.location.href='dashboard.html'},900)});
 })();

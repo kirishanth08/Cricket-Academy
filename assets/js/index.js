@@ -32,11 +32,34 @@ const body = document.body;
     if (localStorage.getItem('eca-dir') === 'rtl') { document.documentElement.dir = 'rtl'; if (rtlToggle) rtlToggle.textContent = 'LTR'; }
 
     // Mobile menu
-    menuBtn.addEventListener('click', () => {
-      const open = navLinks.style.display === 'flex';
-      navLinks.style.cssText = open ? '' :
-        'display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;padding:10px;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);';
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navLinks.style.display = isOpen ? 'flex' : '';
     });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+        navLinks.classList.remove('open');
+        navLinks.style.display = '';
+      }
+    });
+
+    navLinks.querySelectorAll('a:not(.nav-drop-trigger)').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navLinks.style.display = '';
+      });
+    });
+
+    if (navLinks && !navLinks.querySelector('.mobile-drawer-actions')) {
+      const oldLogin = navLinks.querySelector('.mobile-login-link');
+      if (oldLogin) oldLogin.remove();
+      const mActions = document.createElement('div');
+      mActions.className = 'mobile-drawer-actions';
+      mActions.innerHTML = '<a href="login.html" class="mobile-drawer-btn mobile-drawer-login"><i class="fa-solid fa-right-to-bracket"></i> Login</a><a href="register.html" class="mobile-drawer-btn mobile-drawer-signup"><i class="fa-solid fa-user-plus"></i> Sign Up</a>';
+      navLinks.appendChild(mActions);
+    }
 
     // Sticky nav
     window.addEventListener('scroll', () => {

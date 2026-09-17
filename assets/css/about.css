@@ -1,7 +1,8 @@
 /* Extracted from about.html */
 
 :root{--blue:#3154a4;--green:#3154a4;--deep:#101a3a;--lime:#c8ef45;--orange:#ff8740;--cream:#f4f7ef;--white:#fff;--ink:#10201a;--muted:#687770;--line:rgba(16,32,26,.1);--shadow:0 24px 60px rgba(16,26,58,.13)}
-    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    *{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden!important;width:100%!important;max-width:100%!important}html{scroll-behavior:smooth}
     body{font-family:Inter,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden;transition:.3s}
     body.dark{--cream:#091510;--white:#11221b;--ink:#f4faf6;--muted:#a6b7af;--line:rgba(255,255,255,.1);--shadow:0 24px 60px rgba(0,0,0,.3)}
     a{text-decoration:none;color:inherit}button{font:inherit}.container{width:min(1180px,92%);margin:auto}
@@ -808,7 +809,7 @@ body.dark nav .nav-drop-menu a:hover {
 body.dark nav .nav-drop-menu .dropdown-divider {
   background: rgba(255, 255, 255, 0.14) !important;
 }
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   nav .nav-dropdown {
     display: block !important;
     height: auto !important;
@@ -837,7 +838,7 @@ body.dark nav .nav-drop-menu .dropdown-divider {
     pointer-events: auto !important;
   }
 }
-@media (min-width: 901px) {
+@media (min-width: 1024px) {
   nav .nav-dropdown::after {
     content: "";
     position: absolute;
@@ -849,8 +850,9 @@ body.dark nav .nav-drop-menu .dropdown-divider {
 }
 
 
-/* ===== NAVBAR ACTIONS & SIGNUP BUTTON ALIGNMENT FIX ===== */
+/* ===== NAVBAR ACTIONS & RESPONSIVE ALIGNMENT FIX (360px, 768px, 1024px) ===== */
 nav {
+  position: relative !important;
   align-items: center !important;
 }
 
@@ -898,6 +900,31 @@ nav {
   font-weight: 800 !important;
   border: 1px solid var(--line) !important;
   text-decoration: none !important;
+  color: var(--ink) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  transition: all 0.2s ease !important;
+}
+
+body.dark .nav-actions .login-btn,
+body.dark nav .login-btn {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ISSUE 1 FIX: Guaranteed visible, high-contrast navbar action buttons on hover in all modes */
+.nav-actions .login-btn:hover,
+nav .nav-actions .login-btn:hover,
+nav a.login-btn:hover,
+body.dark nav a.login-btn:hover,
+body.dark nav .nav-actions .login-btn:hover,
+body:not(.dark) nav a.login-btn:hover,
+body:not(.dark) nav .nav-actions .login-btn:hover {
+  background: var(--lime) !important;
+  color: #101a3a !important; /* Bold navy text for optimal contrast against lime */
+  border-color: var(--lime) !important;
+  box-shadow: 0 8px 18px rgba(200, 239, 69, 0.28) !important;
+  transform: translateY(-1px) !important;
 }
 
 .nav-actions .signup-btn {
@@ -914,28 +941,37 @@ nav {
   transition: all 0.2s ease !important;
 }
 
-.nav-actions .signup-btn:hover {
+.nav-actions .signup-btn:hover,
+nav .nav-actions .signup-btn:hover,
+nav a.signup-btn:hover,
+body.dark nav a.signup-btn:hover,
+body.dark nav .nav-actions .signup-btn:hover,
+body:not(.dark) nav a.signup-btn:hover,
+body:not(.dark) nav .nav-actions .signup-btn:hover {
+  background: #d6fa55 !important;
+  color: #101a3a !important; /* Bold navy text for high contrast */
+  border: 0 !important;
+  box-shadow: 0 10px 22px rgba(200, 239, 69, 0.38) !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 10px 22px rgba(200, 239, 69, 0.32) !important;
 }
 
-/* Ensure navbar items fit smoothly without squeezing */
-.links {
-  display: flex !important;
-  align-items: center !important;
-  gap: 2px !important;
-  flex-shrink: 1 !important;
-}
+/* Desktop Navbar Items (>= 1024px) */
+@media (min-width: 1024px) {
+  .links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    flex-shrink: 1 !important;
+  }
 
-.links a,
-nav .nav-drop-trigger {
-  padding: 8px 9px !important;
-  font-size: 13px !important;
-  white-space: nowrap !important;
-}
+  .links a,
+  nav .nav-drop-trigger {
+    padding: 8px 9px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
 
-/* Strictly hide hamburger menu icon in website mode (desktop) */
-@media (min-width: 901px) {
+  /* Strictly hide hamburger menu on desktop */
   .menu-btn,
   .nav-actions .menu-btn,
   button.menu-btn {
@@ -945,7 +981,94 @@ nav .nav-drop-trigger {
   }
 }
 
-@media (max-width: 900px) {
+/* ISSUE 2 FIX (1024px Viewport): Smooth alignment without squeezing or wrapping */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .nav-wrap .container,
+  .container {
+    width: min(1180px, 96%) !important;
+  }
+  nav {
+    gap: 6px !important;
+    padding: 0 10px 0 12px !important;
+    justify-content: space-between !important;
+  }
+  .brand {
+    gap: 7px !important;
+  }
+  .brand-mark {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+  }
+  .brand strong {
+    font-size: 13px !important;
+  }
+  .brand span {
+    font-size: 8px !important;
+    letter-spacing: 1px !important;
+  }
+  .links {
+    gap: 1px !important;
+  }
+  .links a,
+  nav .nav-drop-trigger {
+    padding: 6px 6px !important;
+    font-size: 11.5px !important;
+  }
+  .nav-actions {
+    gap: 4px !important;
+  }
+  .nav-actions .icon-btn:not(.menu-btn),
+  .nav-actions #themeToggle,
+  .nav-actions #rtlToggle,
+  .nav-actions .login-btn,
+  .nav-actions .signup-btn {
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+  }
+  .nav-actions .icon-btn {
+    width: 34px !important;
+    min-width: 34px !important;
+  }
+  .nav-actions #rtlToggle {
+    min-width: 38px !important;
+    padding: 0 6px !important;
+    font-size: 10px !important;
+  }
+  .nav-actions .login-btn {
+    padding: 0 10px !important;
+    font-size: 11px !important;
+  }
+  .nav-actions .signup-btn {
+    padding: 0 12px !important;
+    min-width: 68px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* ISSUE 2 FIX (Tablet & Mobile Viewports <= 1023px, including 975px, 768px): Clean mobile/tablet header with dropdown */
+@media (max-width: 1023px) {
+  nav {
+    position: relative !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Desktop links MUST be hidden when closed */
+  .links:not(.open) {
+    display: none !important;
+  }
+
+  /* When hamburger appears, hide topbar login/signup so only dark, rtl, and hamburger remain */
+  .nav-actions .login-btn,
+  .nav-actions .signup-btn {
+    display: none !important;
+  }
+
+  /* Hamburger button visible */
   .menu-btn,
   .nav-actions .menu-btn,
   button.menu-btn {
@@ -955,5 +1078,178 @@ nav .nav-drop-trigger {
     width: 38px !important;
     height: 38px !important;
     box-sizing: border-box !important;
+    border-radius: 11px !important;
+  }
+
+  /* Mobile menu dropdown */
+  .links.open,
+  .links[style*="display: flex"] {
+    display: flex !important;
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    padding: 12px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(16, 32, 26, 0.12) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22) !important;
+    z-index: 9999 !important;
+  }
+
+  body.dark .links.open,
+  body.dark .links[style*="display: flex"] {
+    background: #0f1c16 !important;
+    border-color: rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .links.open a,
+  .links.open .nav-drop-trigger,
+  .links[style*="display: flex"] a,
+  .links[style*="display: flex"] .nav-drop-trigger {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    text-align: left !important;
+  }
+
+  /* Buttons placed under hamburger menu inside dropdown */
+  .mobile-drawer-actions {
+    display: flex !important;
+    gap: 10px !important;
+    margin-top: 8px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(16, 32, 26, 0.1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.dark .mobile-drawer-actions {
+    border-top-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .mobile-drawer-btn {
+    flex: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 11px 14px !important;
+    border-radius: 11px !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-drawer-login {
+    border: 1px solid var(--line) !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    color: var(--ink) !important;
+  }
+
+  body.dark .mobile-drawer-login {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+  }
+
+  .mobile-drawer-signup {
+    background: var(--lime) !important;
+    color: #101a3a !important;
+    border: 0 !important;
+    box-shadow: 0 4px 14px rgba(200, 239, 69, 0.3) !important;
+  }
+}
+
+/* Hide mobile drawer actions on desktop */
+@media (min-width: 1024px) {
+  .mobile-drawer-actions {
+    display: none !important;
+  }
+}
+
+/* ISSUE 2 FIX (360px & Small Mobile Viewports <= 600px): Perfectly aligned without overflow */
+@media (max-width: 600px) {
+  .nav-wrap {
+    padding: 8px 0 !important;
+  }
+  .nav-wrap .container,
+  .container {
+    width: 94% !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  nav {
+    min-height: 54px !important;
+    height: 54px !important;
+    padding: 0 8px 0 10px !important;
+    border-radius: 14px !important;
+    gap: 6px !important;
+  }
+  .brand {
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+  .brand-mark {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 9px !important;
+    font-size: 13px !important;
+  }
+  .brand strong {
+    font-size: 12px !important;
+    line-height: 1 !important;
+    letter-spacing: -0.2px !important;
+  }
+  .brand span {
+    font-size: 8px !important;
+    letter-spacing: 0.8px !important;
+    margin-top: 2px !important;
+  }
+  .nav-actions {
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+  }
+  .nav-actions .icon-btn:not(.menu-btn),
+  .nav-actions #themeToggle,
+  .nav-actions #rtlToggle,
+  .nav-actions .menu-btn,
+  button.menu-btn {
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+  }
+  .nav-actions .icon-btn {
+    width: 34px !important;
+    min-width: 34px !important;
+    border-radius: 9px !important;
+  }
+  .nav-actions #rtlToggle {
+    min-width: 36px !important;
+    padding: 0 6px !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    border-radius: 9px !important;
+  }
+
+  .nav-actions .menu-btn,
+  button.menu-btn {
+    width: 34px !important;
+    min-width: 34px !important;
+    border-radius: 9px !important;
   }
 }
