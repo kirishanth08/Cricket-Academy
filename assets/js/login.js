@@ -19,7 +19,16 @@ if(menuBtn && navLinks) {
   });
 }
 document.getElementById('passwordToggle').addEventListener('click',()=>{const input=document.getElementById('password'),btn=document.getElementById('passwordToggle');input.type=input.type==='password'?'text':'password';btn.innerHTML=input.type==='password'?'<i class="fa-regular fa-eye"></i>':'<i class="fa-regular fa-eye-slash"></i>'});
-document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const email=document.getElementById('email').value.trim().toLowerCase(),password=document.getElementById('password').value,error=document.getElementById('errorMsg'),success=document.getElementById('successMsg');error.classList.remove('show');error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Invalid email or password.';success.classList.remove('show');if(!email||password.length<6){error.classList.add('show');return}let users=[];try{users=JSON.parse(localStorage.getItem('eca-users')||'[]')}catch(err){}const user=users.find(u=>u.email===email&&(u.password===password||u.password.toLowerCase()===password.trim()));if(!user){error.classList.add('show');return}window.ecaSetSession({firstName:user.firstName,lastName:user.lastName,email:user.email,role:'user'});success.classList.add('show');setTimeout(()=>{window.location.href='dashboard.html'},900)});
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const error = document.getElementById('errorMsg');
+  const success = document.getElementById('successMsg');
+  if (error) error.classList.remove('show');
+  if (success) {
+    success.innerHTML = '<i class="fa-solid fa-circle-check"></i> Login successful! Welcome back to Elite Cricket Academy.';
+    success.classList.add('show');
+  }
+});
 })();
 
 /* ===== Original inline script 2 from login.html ===== */

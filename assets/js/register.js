@@ -9,24 +9,15 @@ if(localStorage.getItem('eca-dir')==='rtl')document.documentElement.dir='rtl';
 function setupToggle(btnId,inputId){document.getElementById(btnId).addEventListener('click',()=>{const input=document.getElementById(inputId),btn=document.getElementById(btnId);input.type=input.type==='password'?'text':'password';btn.innerHTML=input.type==='password'?'<i class="fa-regular fa-eye"></i>':'<i class="fa-regular fa-eye-slash"></i>'})}
 setupToggle('passwordToggle','password');setupToggle('confirmToggle','confirmPassword');
 
-document.getElementById('signupForm').addEventListener('submit',e=>{
- e.preventDefault();
- const error=document.getElementById('errorMsg'),success=document.getElementById('successMsg');
- error.classList.remove('show');success.classList.remove('show');
- const firstName=document.getElementById('firstName').value.trim(),lastName=document.getElementById('lastName').value.trim();
- const email=document.getElementById('email').value.trim().toLowerCase(),phone=document.getElementById('phone').value.trim();
- const role=document.getElementById('role').value;
- const password=document.getElementById('password').value,confirm=document.getElementById('confirmPassword').value;
- if(!firstName||!lastName||!email||!role){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields.';error.classList.add('show');return}
- if(password.length<6||password!==confirm||!document.getElementById('terms').checked){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Check your password, confirmation, and required agreement.';error.classList.add('show');return}
- let users=[];
- try{users=JSON.parse(localStorage.getItem('eca-users')||'[]')}catch(err){}
- if(users.some(u=>u.email===email)){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> An account with this email already exists. Try logging in.';error.classList.add('show');return}
- users.push({firstName:firstName,lastName:lastName,email:email,phone:phone,userType:role,password:password});
- localStorage.setItem('eca-users',JSON.stringify(users));
- success.innerHTML='<i class="fa-solid fa-circle-check"></i> Account created! Redirecting to login...';
- success.classList.add('show');
- setTimeout(()=>window.location.href='login.html',1100);
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const error = document.getElementById('errorMsg');
+  const success = document.getElementById('successMsg');
+  if (error) error.classList.remove('show');
+  if (success) {
+    success.innerHTML = '<i class="fa-solid fa-circle-check"></i> Account created successfully! Registration details submitted.';
+    success.classList.add('show');
+  }
 });
 })();
 

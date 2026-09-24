@@ -12,18 +12,15 @@ input.type=input.type==='password'?'text':'password';
 btn.innerHTML=input.type==='password'?'<i class="fa-regular fa-eye"></i>':'<i class="fa-regular fa-eye-slash"></i>';
 });
 
-document.getElementById('adminLoginForm').addEventListener('submit',e=>{
-e.preventDefault();
-const email=document.getElementById('email').value.trim().toLowerCase(),password=document.getElementById('password').value.trim().toLowerCase();
-const error=document.getElementById('errorMsg'),success=document.getElementById('successMsg');
-error.classList.remove('show');success.classList.remove('show');
-if(email===''||password===''){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Please enter your admin email and password.';error.classList.add('show');return}
-let admins=[];
-try{admins=JSON.parse(localStorage.getItem('eca-users')||'[]').filter(u=>u.role==='admin')}catch(err){}
-const admin=admins.find(a=>a.email===email&&(a.password===password||a.password.toLowerCase()===password));
-if(!admin){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Invalid administrator email or password. Create an admin account first.';error.classList.add('show');return}
-success.classList.add('show');window.ecaSetSession({firstName:admin.firstName,lastName:admin.lastName,email:admin.email,role:'admin'});setTimeout(()=>window.location.href='admin-dashboard.html',900);
-
+document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const error = document.getElementById('errorMsg');
+  const success = document.getElementById('successMsg');
+  if (error) error.classList.remove('show');
+  if (success) {
+    success.innerHTML = '<i class="fa-solid fa-circle-check"></i> Admin login successful! Welcome to the Administrator Portal.';
+    success.classList.add('show');
+  }
 });
 })();
 

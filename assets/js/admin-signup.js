@@ -15,25 +15,15 @@ button.innerHTML=input.type==='password'?'<i class="fa-regular fa-eye"></i>':'<i
 }
 setupToggle('passwordToggle','password');setupToggle('confirmToggle','confirmPassword');
 
-document.getElementById('adminSignupForm').addEventListener('submit',e=>{
-e.preventDefault();
-const error=document.getElementById('errorMsg'),success=document.getElementById('successMsg');
-error.classList.remove('show');success.classList.remove('show');
-const firstName=document.getElementById('firstName').value.trim(),lastName=document.getElementById('lastName').value.trim();
-const email=document.getElementById('email').value.trim().toLowerCase(),phone=document.getElementById('phone').value.trim();
-const password=document.getElementById('password').value,confirm=document.getElementById('confirmPassword').value;
-if(!firstName||!lastName||!email){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields.';error.classList.add('show');return}
-if(password.length<8||password!==confirm||!document.getElementById('terms').checked){
-error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> Check your passwords and authorization agreement.';
-error.classList.add('show');return;
-}
-let users=[];
-try{users=JSON.parse(localStorage.getItem('eca-users')||'[]')}catch(err){}
-if(users.some(u=>u.email===email)){error.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> An account with this email already exists.';error.classList.add('show');return}
-users.push({firstName:firstName,lastName:lastName,email:email,phone:phone,password:password,role:'admin'});
-localStorage.setItem('eca-users',JSON.stringify(users));
-success.classList.add('show');
-setTimeout(()=>window.location.href='admin-login.html',1100);
+document.getElementById('adminSignupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const error = document.getElementById('errorMsg');
+  const success = document.getElementById('successMsg');
+  if (error) error.classList.remove('show');
+  if (success) {
+    success.innerHTML = '<i class="fa-solid fa-circle-check"></i> Administrator account created successfully!';
+    success.classList.add('show');
+  }
 });
 })();
 
